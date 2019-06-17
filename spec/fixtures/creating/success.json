@@ -1,0 +1,17 @@
+{
+  "status_code": 201,
+  "status": "success",
+  "data": {
+    "book": {
+      "name": "The Rogue Prince",
+      "isbn": "978-0345537263",
+      "authors": [
+        "George R. R. Martin"
+      ],
+      "number_of_pages": 832,
+      "publisher": "Bantam Books",
+      "country": "United States",
+      "release_date": "1996-08-01"
+    }
+  }
+}
