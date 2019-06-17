@@ -23,6 +23,7 @@ group :test do
   gem 'database_cleaner', '~> 1.7'
   gem 'webmock', '~> 3.6'
   gem 'vcr', '~> 5.0'
+  gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
 end
 
 
