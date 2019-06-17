@@ -1,6 +1,13 @@
 module API
   module V1
     class BooksController < ApplicationController
+      def index
+        books = Book.all
+        json  = JSONBuilder.new(books).build_list
+
+        render json: json, status: 200
+      end
+
       def create
         book = BooksCreationService.new(book_params).perform
         json = book.to_json(status_code: 201, status: "success")
