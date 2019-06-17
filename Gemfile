@@ -21,6 +21,8 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.7'
+  gem 'webmock', '~> 3.6'
+  gem 'vcr', '~> 5.0'
 end
 
 

@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.anapioficeandfire.com/api/books?name=Foo%20and%20Bar
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.anapioficeandfire.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 17 Jun 2019 01:02:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - ARRAffinity=b446429cb290a9eabd71f090b2d29654997475586a4adeeee07370017118f2a5;Path=/;HttpOnly;Domain=www.anapioficeandfire.com
+      - __cfduid=dd6a91aba8352039daaaf0e0f652258521560733365; expires=Tue, 16-Jun-20
+        01:02:45 GMT; path=/; domain=.anapioficeandfire.com; HttpOnly
+      Vary:
+      - Accept-Encoding
+      Link:
+      - <https://www.anapioficeandfire.com/api/books?name=Foo%20and%20Bar&page=1&pageSize=10>;
+        rel="first", <https://www.anapioficeandfire.com/api/books?name=Foo%20and%20Bar&page=1&pageSize=10>;
+        rel="last"
+      X-Powered-By:
+      - ASP.NET
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4e8119914eacb8e7-MIA
+    body:
+      encoding: ASCII-8BIT
+      string: "[]"
+    http_version: 
+  recorded_at: Mon, 17 Jun 2019 01:02:46 GMT
+recorded_with: VCR 5.0.0
