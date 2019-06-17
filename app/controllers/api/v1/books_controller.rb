@@ -2,7 +2,7 @@ module API
   module V1
     class BooksController < ApplicationController
       def index
-        books = Book.all
+        books = Book.filter(filter_params)
         json  = JSONBuilder.new(books).build_list
 
         render json: json, status: 200
@@ -16,6 +16,10 @@ module API
       end
 
       private
+
+      def filter_params
+        params.permit(:name, :country, :publisher, :release_date)
+      end
 
       def book_params
         params.permit(:name, :isbn, :country, :number_of_pages, :publisher, :release_date, authors: [])
