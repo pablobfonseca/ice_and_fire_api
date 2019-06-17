@@ -12,4 +12,20 @@ describe JSONBuilder do
         .to eq load_json_from("spec/fixtures/listing/success.json")
     end
   end
+
+  describe "#build_external_list" do
+    it 'returns the json structure for external books' do
+      books = JSON.parse(File.read("spec/fixtures/external_books/books.json"))
+
+      expect(described_class.new(books).build_external_list)
+        .to eq load_json_from("spec/fixtures/external_books/success.json")
+    end
+
+    it 'does not show any result on data node' do
+      books = []
+
+      expect(described_class.new(books).build_external_list)
+        .to eq load_json_from("spec/fixtures/external_books/no_results.json")
+    end
+  end
 end
