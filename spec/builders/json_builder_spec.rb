@@ -46,4 +46,13 @@ describe JSONBuilder do
         .to eq load_json_from("spec/fixtures/deleting/success.json")
     end
   end
+
+  describe "#build_show" do
+    it 'returns the json structure for a book' do
+      book = build_stubbed(:game_of_thrones_book, id: 1)
+
+      expect(described_class.new(book).build_show)
+        .to eq load_json_from("spec/fixtures/showing/success.json")
+    end
+  end
 end

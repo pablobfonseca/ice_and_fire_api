@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :external_books, only: :index
 
     namespace :v1 do
-      resources :books, only: [:create, :index, :update, :destroy]
+      resources :books, except: [:new, :edit]
     end
   end
 end

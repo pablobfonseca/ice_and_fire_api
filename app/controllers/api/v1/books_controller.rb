@@ -8,6 +8,13 @@ module API
         render json: json, status: 200
       end
 
+      def show
+        book = Book.find(params[:id])
+        json = JSONBuilder.new(book).build_show
+
+        render json: json, status: 200
+      end
+
       def create
         book = BooksCreationService.new(book_params).perform
         json = book.to_json(status_code: 201, status: "success")
