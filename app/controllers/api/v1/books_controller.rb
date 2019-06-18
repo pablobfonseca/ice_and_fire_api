@@ -22,6 +22,13 @@ module API
         render json: json, status: :created
       end
 
+      def destroy
+        book = Book.find(params[:id]).destroy
+        json = JSONBuilder.new(book).build_deleted
+
+        render json: json, status: 200
+      end
+
       private
 
       def filter_params

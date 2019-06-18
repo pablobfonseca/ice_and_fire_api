@@ -58,6 +58,15 @@ class JSONBuilder
     }
   end
 
+  def build_deleted
+    {
+      "status_code": 204,
+      "status": "success",
+      "message": "The book #{record.name} was deleted successfully",
+      "data": []
+    }
+  end
+
   private
   attr_reader :record
 end

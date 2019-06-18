@@ -1,0 +1,6 @@
+{
+  "status_code": 204,
+  "status": "success",
+  "message": "The book Foo was deleted successfully",
+  "data": []
+}

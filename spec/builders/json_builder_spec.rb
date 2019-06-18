@@ -37,4 +37,13 @@ describe JSONBuilder do
         .to eq load_json_from("spec/fixtures/updating/success.json")
     end
   end
+
+  describe "#build_deleted" do
+    it 'returns the json structure for deleted books' do
+      book = build_stubbed(:book, name: "Foo")
+
+      expect(described_class.new(book).build_deleted)
+        .to eq load_json_from("spec/fixtures/deleting/success.json")
+    end
+  end
 end
