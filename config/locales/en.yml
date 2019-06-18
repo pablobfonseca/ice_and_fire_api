@@ -30,4 +30,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  updated: "The book %{name} was updated successfully"
+  deleted: "The book %{name} was deleted successfully"
+

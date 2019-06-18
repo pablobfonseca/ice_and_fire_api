@@ -3,10 +3,10 @@ class JSONBuilder
     @record = record
   end
 
-  def build_list(status_code=200, status="success")
+  def build_list
     {
-      "status_code": status_code,
-      "status": status,
+      "status_code": 200,
+      "status": "success",
       "data": record.map do |book|
         {
           "id": book.id,
@@ -41,10 +41,34 @@ class JSONBuilder
   end
 
   def build_updated
+    build_resource_default({
+        "status_code": 200,
+        "status": "success",
+        "message": I18n.t('updated', name: record.name)
+      })
+  end
+
+  def build_deleted
     {
+      "status_code": 204,
+      "status": "success",
+      "message": I18n.t('deleted', name: record.name),
+      "data": []
+    }
+  end
+
+  def build_show
+    build_resource_default({
       "status_code": 200,
       "status": "success",
-      "message": "The book #{record.name} was updated successfully",
+    })
+  end
+
+  private
+  attr_reader :record
+
+  def build_resource_default(options={})
+    {
       "data": {
         "id": record.id,
         "name": record.name,
@@ -55,35 +79,6 @@ class JSONBuilder
         "country": record.country,
         "release_date": record.release_date
       }
-    }
+    }.reverse_merge(options)
   end
-
-  def build_deleted
-    {
-      "status_code": 204,
-      "status": "success",
-      "message": "The book #{record.name} was deleted successfully",
-      "data": []
-    }
-  end
-
-  def build_show
-    {
-      "status_code": 200,
-      "status": "success",
-      "data": {
-        "id": record.id,
-        "name": record.name,
-        "isbn":  record.isbn,
-        "authors": record.authors,
-        "number_of_pages": record.number_of_pages,
-        "publisher": record.publisher,
-        "country": record.country,
-        "release_date": record.release_date
-      }
-    }
-  end
-
-  private
-  attr_reader :record
 end
