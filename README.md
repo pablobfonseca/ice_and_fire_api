@@ -2,8 +2,7 @@
 Search books on [IceAndFireAPI](https://anapioficeandfire.com)
 
 ```
-GET https://iceandfireapi.herokuapp.com/api/external_books?name=A Game of
-Thrones
+GET https://iceandfireapi.herokuapp.com/api/external_books?name=A%20Game%20of%20Thrones
 ```
 
 ```json
@@ -40,7 +39,9 @@ Done, you're set, you should have your application running on http://localhost:3
 
 ### Create:
 ```
-POST /api/v1/books  
+POST /api/v1/books
+```
+```
 parameters: {
   :name,
   :isbn,
