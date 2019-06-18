@@ -1,0 +1,17 @@
+{
+  "status_code": 200,
+  "status": "success",
+  "message": "The book Bar was updated successfully",
+  "data": {
+    "id": 1,
+    "name": "Bar",
+    "isbn": "978-0345537263",
+    "authors": [
+      "John Doe"
+    ],
+    "number_of_pages": 832,
+    "publisher": "Bantam Books",
+    "country": "United States",
+    "release_date": "1996-08-01"
+  }
+}

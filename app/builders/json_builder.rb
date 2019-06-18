@@ -1,13 +1,13 @@
 class JSONBuilder
-  def initialize(books)
-    @books = books
+  def initialize(record)
+    @record = record
   end
 
   def build_list(status_code=200, status="success")
     {
       "status_code": status_code,
       "status": status,
-      "data": books.map do |book|
+      "data": record.map do |book|
         {
           "id": book.id,
           "name": book.name,
@@ -26,7 +26,7 @@ class JSONBuilder
     {
       "status_code": 200,
       "status": "success",
-      "data": books.map do |book|
+      "data": record.map do |book|
         {
           "name": book["name"],
           "isbn": book["isbn"],
@@ -40,6 +40,24 @@ class JSONBuilder
     }
   end
 
+  def build_updated
+    {
+      "status_code": 200,
+      "status": "success",
+      "message": "The book #{record.name} was updated successfully",
+      "data": {
+        "id": record.id,
+        "name": record.name,
+        "isbn": record.isbn,
+        "authors": record.authors,
+        "number_of_pages": record.number_of_pages,
+        "publisher": record.publisher,
+        "country": record.country,
+        "release_date": record.release_date
+      }
+    }
+  end
+
   private
-  attr_reader :books
+  attr_reader :record
 end

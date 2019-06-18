@@ -28,4 +28,13 @@ describe JSONBuilder do
         .to eq load_json_from("spec/fixtures/external_books/no_results.json")
     end
   end
+
+  describe "#build_updated" do
+    it 'returns the json structure for updated books' do
+      book = build_stubbed(:book, id: 1, name: "Bar", authors: ["John Doe"])
+
+      expect(described_class.new(book).build_updated)
+        .to eq load_json_from("spec/fixtures/updating/success.json")
+    end
+  end
 end

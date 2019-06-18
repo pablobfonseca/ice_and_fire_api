@@ -15,6 +15,13 @@ module API
         render json: json, status: :created
       end
 
+      def update
+        book = BooksUpdateService.new(params[:id], book_params).perform
+        json = JSONBuilder.new(book).build_updated
+
+        render json: json, status: :created
+      end
+
       private
 
       def filter_params
